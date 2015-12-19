@@ -27,7 +27,7 @@ Techniquement :
 - Symfony 3 = PHP7
     PHP7 = os particulier
 - Base données = MySql
-- Boostrap 4 = SASS, jQuery
+- Bootstrap 4 = SASS, jQuery
     SASS = NodeJS
 - Gulp = NodeJs
 - Bower = NodeJS 
@@ -35,4 +35,5 @@ Techniquement :
 
 Serveurs :
 - Serveur Web (NGINX)
+- Serveur PHP7 (PHP FPM)
 - Serveur Base de données (MySql)

@@ -1,0 +1,16 @@
+storage:
+  image: debian:jessie
+  volumes:
+    - ./src:/var/www/html
+    
+php7:
+  image: dopsy_php7
+  volumes_from:
+    - storage
+    
+mysql:
+  image: dopsy_mysql
+  volumes_from:
+    - storage
+  environment:
+    MYSQL_ROOT_PASSWORD: root
