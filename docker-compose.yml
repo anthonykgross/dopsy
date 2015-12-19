@@ -7,6 +7,15 @@ php7:
   image: dopsy_php7
   volumes_from:
     - storage
+  links:
+    - mysql:container_mysql
+  ports:
+    - 80:80
+  volumes:
+    - ./docker/conf/php7:/usr/local/etc/php/conf.d
+    - ./docker/conf/supervisor/conf.d:/etc/supervisor/conf.d
+    - ./docker/conf/nginx:/etc/nginx
+    - ./docker/conf/logs:/var/www/logs
     
 mysql:
   image: dopsy_mysql
