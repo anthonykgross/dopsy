@@ -29,5 +29,6 @@ docker-compose up -d
 ```
 
 ## Development 
-Don't miss to add 127.0.0.1 dopsy.local in /etc/hosts (Unix)
-Don't miss to add <VM ip> dopsy.local in /etc/hosts (OSX) or in Windows/System32/drivers/etc/hosts (Win)
+
+- Don't miss to add 127.0.0.1 dopsy.local in /etc/hosts (Unix)
+- Don't miss to add <VM ip> dopsy.local in /etc/hosts (OSX) or in Windows/System32/drivers/etc/hosts (Win)
