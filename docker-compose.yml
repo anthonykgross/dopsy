@@ -19,7 +19,9 @@ php7:
     
 mysql:
   image: dopsy_mysql
-  volumes_from:
-    - storage
+  volumes:
+    - ./docker/etc/mysql/my.cnf:/etc/mysql/my.cnf
+    - ./docker/etc/mysql/lib:/var/lib/mysql
+    - ./docker/etc/mysql/logs:/var/log/mysql
   environment:
     MYSQL_ROOT_PASSWORD: root

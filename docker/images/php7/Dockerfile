@@ -6,6 +6,9 @@ RUN apt-get update -y && \
 	apt-get upgrade -y && \
 	apt-get install -y npm curl nginx git supervisor
 
+RUN docker-php-ext-install opcache  
+RUN docker-php-ext-enable opcache
+  
 # Installation de Node.js à partir du site officiel
 RUN curl -LO "https://nodejs.org/dist/v0.12.5/node-v0.12.5-linux-x64.tar.gz" 
 RUN tar -xzf node-v0.12.5-linux-x64.tar.gz -C /usr/local --strip-components=1
