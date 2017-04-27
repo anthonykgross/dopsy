@@ -2,3 +2,4 @@
 /src/vendor/
 /src/web/libs/
 /src/node_modules/
+.idea
