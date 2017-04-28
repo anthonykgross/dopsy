@@ -15,7 +15,7 @@ tests() {
 }
 
 run() {
-    chmod 777 * -Rf
+    chmod 755 * -Rf
     supervisord
 }
 
@@ -30,6 +30,11 @@ case "$1" in
     ;;
 "run")
     echo "Run"
+    run
+    ;;
+"init")
+    echo "Initialization"
+    install
     run
     ;;
 *)
