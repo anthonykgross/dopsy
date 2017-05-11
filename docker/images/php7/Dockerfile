@@ -15,9 +15,8 @@ RUN rm -Rf /etc/nginx/* && \
     rm -Rf /src/*
 
 # Installation de Node.js à partir du site officiel
-RUN curl -LO "https://nodejs.org/dist/v0.12.5/node-v0.12.5-linux-x64.tar.gz" 
-RUN tar -xzf node-v0.12.5-linux-x64.tar.gz -C /usr/local --strip-components=1
-RUN rm node-v0.12.5-linux-x64.tar.gz
+RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN apt-get install -y nodejs
 
 RUN rm -rf /var/lib/apt/lists/* && apt-get autoremove -y --purge
 
