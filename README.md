@@ -23,9 +23,14 @@ chmod +x install.sh
 ./install.sh
 ```
 
+Install vendor
+```console
+docker-compose run php7 install
+```
+
 Run the cluster (web + mysql + storage)
 ```console
-docker-compose up -d
+docker-compose up
 ```
 
 ## Development 
