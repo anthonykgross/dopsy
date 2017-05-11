@@ -8,6 +8,8 @@ RUN apt-get update -y && \
 
 RUN docker-php-ext-install opcache  
 RUN docker-php-ext-enable opcache
+RUN docker-php-ext-install pdo_mysql  
+RUN docker-php-ext-enable pdo_mysql
 
 RUN rm -Rf /etc/nginx/* && \
     rm -Rf /src/*
