@@ -1,21 +1,16 @@
-storage:
-  image: debian:jessie
-  volumes:
-    - ./src:/var/www/html
-    
 php7:
   image: dopsy_php7
-  volumes_from:
-    - storage
+  container_name: dopsy
   links:
     - mysql:container_mysql
   ports:
     - 80:80
   volumes:
-    - ./docker/conf/php7:/usr/local/etc/php/conf.d
+    - ./docker/conf/php7/docker-php-ext-opcache.ini:/usr/local/etc/php/conf.d/docker-php-ext-opcache.ini
     - ./docker/conf/supervisor/conf.d:/etc/supervisor/conf.d
     - ./docker/conf/nginx:/etc/nginx
     - ./docker/conf/logs:/var/www/logs
+    - ./src:/var/www/html
     
 mysql:
   image: dopsy_mysql

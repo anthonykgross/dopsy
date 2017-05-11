@@ -22,6 +22,7 @@ RUN rm -rf /var/lib/apt/lists/* && apt-get autoremove -y --purge
 
 RUN npm install -g bower
 RUN npm install -g gulp
+RUN npm install -g yarn
 
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

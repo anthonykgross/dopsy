@@ -3,7 +3,7 @@ set -e
 
 install() {
     rm node_modules/ -Rf
-    npm install
+    yarn
     gulp
     php composer.phar self-update
     php composer.phar install
@@ -15,7 +15,6 @@ tests() {
 }
 
 run() {
-    chmod 755 * -Rf
     supervisord
 }
 
@@ -30,11 +29,6 @@ case "$1" in
     ;;
 "run")
     echo "Run"
-    run
-    ;;
-"init")
-    echo "Initialization"
-    install
     run
     ;;
 *)
