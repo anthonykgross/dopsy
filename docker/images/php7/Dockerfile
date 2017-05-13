@@ -32,7 +32,8 @@ RUN npm install -g gulp
 RUN npm install -g yarn
 
 ADD entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+RUN chmod +x /entrypoint.sh && \
+	rm /var/www/html/index.nginx-debian.html
 
 EXPOSE 80
 EXPOSE 443
