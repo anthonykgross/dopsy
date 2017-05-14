@@ -1,27 +1,25 @@
-storage:
-  image: debian:jessie
-  volumes:
-    - ./src:/var/www/html
-    
-php7:
-  image: dopsy_php7
-  volumes_from:
-    - storage
-  links:
-    - mysql:container_mysql
-  ports:
-    - 80:80
-  volumes:
-    - ./docker/conf/php7:/usr/local/etc/php/conf.d
-    - ./docker/conf/supervisor/conf.d:/etc/supervisor/conf.d
-    - ./docker/conf/nginx:/etc/nginx
-    - ./docker/conf/logs:/var/www/logs
-    
-mysql:
-  image: dopsy_mysql
-  volumes:
-    - ./docker/etc/mysql/my.cnf:/etc/mysql/my.cnf
-    - ./docker/etc/mysql/lib:/var/lib/mysql
-    - ./docker/etc/mysql/logs:/var/log/mysql
-  environment:
-    MYSQL_ROOT_PASSWORD: root
+version: '3'
+services:
+  php7:
+    image: dopsy_php7
+    container_name: dopsy
+    links:
+      - mysql:container_mysql
+    ports:
+      - 80:80
+    volumes:
+      - ./docker/conf/supervisor/conf.d:/etc/supervisor/conf.d
+      - ./docker/conf/nginx:/etc/nginx
+      - ./docker/conf/logs:/var/www/logs
+      - ./src:/var/www/html
+
+  mysql:
+    image: dopsy_mysql
+    volumes:
+      - ./docker/etc/mysql/my.cnf:/etc/mysql/my.cnf
+      - ./docker/etc/mysql/lib:/var/lib/mysql
+      - ./docker/etc/mysql/logs:/var/log/mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root

@@ -33,6 +33,11 @@ Run the cluster (web + mysql + storage)
 docker-compose up
 ```
 
+In another terminal
+```console
+docker exec -ti dopsy bash
+```
+
 ## Development 
 
 - Don't miss to add 127.0.0.1 dopsy.local in /etc/hosts (Unix)

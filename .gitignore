@@ -6,14 +6,14 @@
 /src/var/*
 !/src/var/cache
 /src/var/cache/*
-!/srcvar/cache/.gitkeep
+!/src/var/cache/.gitkeep
 !/src/var/logs
 /src/var/logs/*
-!/srcvar/logs/.gitkeep
+!/src/var/logs/.gitkeep
 !/src/var/sessions
 /src/var/sessions/*
-!/srcvar/sessions/.gitkeep
-!/srcvar/SymfonyRequirements.php
+!/src/var/sessions/.gitkeep
+!/src/var/SymfonyRequirements.php
 /src/vendor/
 /src/web/bundles/
 /src/web/libs/
@@ -22,3 +22,5 @@
 /docker/etc/mysql/lib/*
 /docker/conf/logs/*
 .idea
+
+.DS_store

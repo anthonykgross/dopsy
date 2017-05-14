@@ -1,21 +1,21 @@
 #!/bin/bash
 set -e
+source ~/.bash_profile
 
 install() {
     rm node_modules/ -Rf
-    npm install
-    gulp
-    php composer.phar self-update
-    php composer.phar install
+    gosu docker yarn
+    gosu docker gulp
+    composer self-update
+    gosu docker composer install
     #php app/console assets:install
 }
 
 tests() {
-    php bin/phpunit -c app/
+    gosu docker php bin/phpunit -c app/
 }
 
 run() {
-    chmod 755 * -Rf
     supervisord
 }
 
@@ -30,11 +30,6 @@ case "$1" in
     ;;
 "run")
     echo "Run"
-    run
-    ;;
-"init")
-    echo "Initialization"
-    install
     run
     ;;
 *)
