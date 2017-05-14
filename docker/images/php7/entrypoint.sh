@@ -1,17 +1,18 @@
 #!/bin/bash
 set -e
+source ~/.bash_profile
 
 install() {
     rm node_modules/ -Rf
-    yarn
-    gulp
-    php composer.phar self-update
-    php composer.phar install
+    gosu docker yarn
+    gosu docker gulp
+    composer self-update
+    gosu docker composer install
     #php app/console assets:install
 }
 
 tests() {
-    php bin/phpunit -c app/
+    gosu docker php bin/phpunit -c app/
 }
 
 run() {
