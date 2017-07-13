@@ -13,14 +13,12 @@
 
 Create images for Docker
 ```console
-chmod +x create-images.sh
-./create-images.sh
+make
 ```
 
 Define permissions in folders & conf files
 ```console
-chmod +x install.sh
-./install.sh
+make install
 ```
 
 Install vendor
