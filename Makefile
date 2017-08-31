@@ -8,6 +8,7 @@ build:
 install:
 	chmod -Rf 777 docker/
 	chmod 644 docker/etc/mysql/my.cnf
+	docker-compose run php7 install
 	
 debug:
 	docker run -it --rm --entrypoint=/bin/bash $(NAME_PHP):master

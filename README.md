@@ -21,19 +21,14 @@ Define permissions in folders & conf files
 make install
 ```
 
-Install vendor
-```console
-docker-compose run php7 install
-```
-
 Run the cluster (web + mysql + storage)
 ```console
-docker-compose up
+make run
 ```
 
-In another terminal
+Log into the container
 ```console
-docker exec -ti dopsy bash
+make debug
 ```
 
 ## Development 
