@@ -51,8 +51,4 @@ docker exec -ti dopsy bash
 
 ## Technologies
 - PHP7 - Symfony 3 - Composer - PhpUnit
-- LESS
-- Bootstrap
-- Bower
-- Gulp
 - MySql
