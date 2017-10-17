@@ -3,13 +3,12 @@ set -e
 source ~/.bash_profile
 
 install() {
-    rm node_modules/ -Rf
     composer self-update
     gosu docker composer install
 }
 
 tests() {
-    gosu docker php bin/phpunit -c app/
+    gosu docker php vendor/bin/phpunit -c .
 }
 
 run() {

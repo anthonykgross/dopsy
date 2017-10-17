@@ -1,39 +1,29 @@
 # DoPSy : (DOcker, Php7 & SYmfony3)
 
 ## Requierements: 
-- Docker 1.9
-- Docker Compose 1.4
-
-## Directory 
-- docker    // Images docker & conf (Php7, nginx, supervisor & logs)
-- docs      // Documentations
-- src       // Symfony3 - Project source code
+- Docker 17.04-ce
+- Docker Compose 1.12
 
 ## How to install 
 
-Create images for Docker
+Setup the project and run the cluster (web + mysql + storage)
+```console
+make start
+```
+
+Debug the current container
+```console
+make debug
+```
+
+Stop the cluster
+```console
+make stop
+```
+
+Need help
 ```console
 make
-```
-
-Define permissions in folders & conf files
-```console
-make install
-```
-
-Install vendor
-```console
-docker-compose run php7 install
-```
-
-Run the cluster (web + mysql + storage)
-```console
-docker-compose up
-```
-
-In another terminal
-```console
-docker exec -ti dopsy bash
 ```
 
 ## Development 
@@ -51,4 +41,5 @@ docker exec -ti dopsy bash
 
 ## Technologies
 - PHP7 - Symfony 3 - Composer - PhpUnit
-- MySql
+- MariaDb/MySql
+- Thanks to [en-marche.fr](https://github.com/EnMarche/en-marche.fr)

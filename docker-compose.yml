@@ -1,21 +1,26 @@
 version: '3'
 services:
-  php7:
-    image: dopsy_php7
-    container_name: dopsy
+  app:
+    build:
+      context: .
+      dockerfile: docker/images/Dockerfile
     ports:
       - 80:80
-    volumes:
-      - ./docker/conf/supervisor/conf.d/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf
-      - ./docker/conf/nginx/sites-enabled/dopsy.conf:/etc/nginx/sites-enabled/dopsy.conf
-      - ./docker/conf/logs:/var/www/logs
-      - ./src:/var/www/html
 
-  mysql:
-    image: mysql:5.7
+    depends_on:
+      - db
     volumes:
-      - ./docker/etc/mysql/lib:/var/lib/mysql
+      - ./docker/conf/supervisor.conf:/etc/supervisor/conf.d/supervisor.conf
+      - ./docker/conf/nginx.conf:/etc/nginx/sites-enabled/dopsy.conf
+      - ./docker/logs:/var/www/logs
+      - .:/var/www/html
+
+  db:
+    image: mariadb:10.3.2
+    volumes:
+      - ./docker/data/db:/var/lib
     ports:
       - 3306:3306
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: symfony

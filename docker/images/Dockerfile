@@ -4,7 +4,7 @@ MAINTAINER Anthony K GROSS
 
 WORKDIR /var/www/html
 
-ADD entrypoint.sh /entrypoint.sh
+ADD docker/images/entrypoint.sh /entrypoint.sh
 
 RUN apt-get update -y && \
 	apt-get install -y nginx supervisor && \
@@ -13,6 +13,10 @@ RUN apt-get update -y && \
 	apt-get autoremove -y --purge && \
 	rm -Rf /etc/nginx/sites-enabled/default && \
 	chmod +x /entrypoint.sh
+
+COPY . /var/www/html
+COPY ./docker/conf/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
+COPY ./docker/conf/nginx.conf /etc/nginx/sites-enabled/dopsy.conf
 
 EXPOSE 80
 EXPOSE 443
