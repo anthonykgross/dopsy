@@ -23,7 +23,7 @@ install:
 	$(RUN) install
 
 start:          ## Install the full project (build install db db-migrate up)
-start: build install db db-migrate start
+start: build install db db-migrate up
 
 stop:           ## Stop containers
 stop:
