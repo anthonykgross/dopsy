@@ -12,7 +12,8 @@ RUN apt-get update -y && \
 	rm -Rf /var/lib/apt/lists/* && \
 	apt-get autoremove -y --purge && \
 	rm -Rf /etc/nginx/sites-enabled/default && \
-	chmod +x /entrypoint.sh
+	chmod +x /entrypoint.sh && \
+	mkdir -p /var/www/logs
 
 COPY . /var/www/html
 COPY ./docker/conf/supervisor.conf /etc/supervisor/conf.d/supervisor.conf
