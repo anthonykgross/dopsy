@@ -1,8 +1,7 @@
-NAME_PHP=dopsy_app
 FIG=docker-compose
 RUN=$(FIG) run --rm app
 EXEC=$(FIG) exec app
-CONSOLE=bin/console
+CONSOLE=gosu docker bin/console
 
 .DEFAULT_GOAL := help
 .PHONY: help build install start stop boot debug debug-root db db-migrate test
